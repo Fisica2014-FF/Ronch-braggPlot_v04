@@ -65,7 +65,7 @@ void BGCalc::update(const Event& ev) {
 	}
 
 	// loop over points and update sums
-	for (unsigned i = 0; i < max_points - min_points; ++i) {
+	for (unsigned i = min_points; i < max_points; ++i) {
 		sumenergies += ev.energy(i);
 		sumsquares += (ev.energy(i) * ev.energy(i));
 	}
