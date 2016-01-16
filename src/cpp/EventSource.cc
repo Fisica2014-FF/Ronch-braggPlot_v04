@@ -1,6 +1,8 @@
 #include "../EventSource.h"
 
 #include "../Event.h"
+#include "../util/include/Dispatcher.h"
+
 
 
 EventSource::EventSource() {

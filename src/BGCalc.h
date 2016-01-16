@@ -33,8 +33,8 @@ private:
 	int number_of_events_;
 
 	// sum of energies and sum of square energies
-	std::vector<int> sumenergies;
-	std::vector<unsigned> sumsquares;
+	long sumenergies;
+	unsigned long sumsquares;
 
 	BGCalc(const BGCalc& x);
 	BGCalc& operator=(const BGCalc& x);

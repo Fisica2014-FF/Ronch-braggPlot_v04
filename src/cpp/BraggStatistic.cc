@@ -3,7 +3,10 @@
 #include "../BraggStatistic.h"
 
 #include <cmath>
-#include <vector>
+
+#include "../TotalEnergy.h"
+#include "../util/include/Singleton.h"
+
 
 BraggStatistic::BraggStatistic(int minEnergy, int maxEnergy) :
 		MIN_ENERGY_(minEnergy), MAX_ENERGY_(maxEnergy), number_of_events_(0), sumenergies(

@@ -1,5 +1,14 @@
 //... include header files ...
 
+#include "../BGCalc.h"
+
+#include <cmath>
+
+#include "../AnalysisFactory.h"
+#include "../TotalEnergy.h"
+#include "../util/include/Singleton.h"
+
+
 using namespace std;
 
 // define a builder for this analyzer and register it
@@ -38,8 +47,8 @@ void BGCalc::beginJob() {
 	number_of_events_ = 0;
 
 	// sum of energies and sum of square energies
-	sumenergies(max_points-min_points,0);
-	sumsquares(max_points-min_points,0);
+	sumenergies = 0;
+	sumsquares = 0;
 	return;
 
 }
@@ -56,12 +65,9 @@ void BGCalc::update(const Event& ev) {
 	}
 
 	// loop over points and update sums
-	// I'm not sure i have understood correctly, i suppose
-	// i have to calculate the mean and RMS of the last 100 to 120
-	// points
 	for (unsigned i = 0; i < max_points - min_points; ++i) {
-		sumenergies[i] += ev.energy(i);
-		sumsquares[i] += (ev.energy(i) * ev.energy(i));
+		sumenergies += ev.energy(i);
+		sumsquares += (ev.energy(i) * ev.energy(i));
 	}
 
 	// update event counter
@@ -75,18 +81,17 @@ void BGCalc::endJob() {
 	// compute background
 
 	// number of points
-	numpoints = max_points-min_points;
+	auto numpoints = max_points-min_points;
 	// total number of measurements
-	...
+	auto tot_measurements = numpoints * number_of_events_;
 	// compute mean and rms
-	for (unsigned i = 0; i < Event::minSize(); ++i) {
-		meanenergies[i] = sumenergies[i] / double(number_of_events_);
-		rmsenergies[i] = sqrt(
-				sumsquares[i] / double(number_of_events_) - pow(
-						sumenergies[i] / double(number_of_events_), 2));
-	}
+	double meanenergies = sumenergies / double(tot_measurements);
+	double rmsenergies = sqrt(
+			sumsquares / double(tot_measurements) - pow(
+					sumenergies / double(tot_measurements), 2));
+
 	// printout result
-	cout << "background " << ... << " +- " << ... << endl;
+	cout << "background " << meanenergies << " +- " << rmsenergies << endl;
 
 	return;
 
