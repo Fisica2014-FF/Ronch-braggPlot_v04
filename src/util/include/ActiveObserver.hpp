@@ -2,13 +2,13 @@
 #include "Dispatcher.h"
 #include <iostream>
 
-template <class T>
+template<class T>
 ActiveObserver<T>::ActiveObserver() {
-  Dispatcher<T>::subscribe( this );
+	Dispatcher<T>::subscribe(this);
 }
 
-template <class T>
+template<class T>
 ActiveObserver<T>::~ActiveObserver() {
-  Dispatcher<T>::unsubscribe( this );
+	Dispatcher<T>::unsubscribe(this);
 }
 

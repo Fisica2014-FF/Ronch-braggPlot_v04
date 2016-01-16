@@ -14,26 +14,26 @@
 
 class TotalEnergy: public Singleton<TotalEnergy>, public LazyObserver<Event> {
 
-	  //... friend declaration ...
-	 friend Singleton<TotalEnergy>;
+	//... friend declaration ...
+	friend Singleton<TotalEnergy> ;
 
-	 public:
+public:
 
-	  // function to be called when a new event arrives
-	  virtual void update( const Event& ev );
+	// function to be called when a new event arrives
+	virtual void update(const Event& ev);
 
-	  // sum of measurements, no background subtraction
-	  double rawSum();
+	// sum of measurements, no background subtraction
+	double rawSum();
 
-	 private:
+private:
 
-	  // sum of data, no background subtraction
-	  double totalenergy;
+	// sum of data, no background subtraction
+	double totalenergy;
 
-	  TotalEnergy();
-	  ~TotalEnergy();
-	  TotalEnergy           ( const TotalEnergy& x );
-	  TotalEnergy& operator=( const TotalEnergy& x );
+	TotalEnergy();
+	~TotalEnergy();
+	TotalEnergy(const TotalEnergy& x);
+	TotalEnergy& operator=(const TotalEnergy& x);
 
 };
 

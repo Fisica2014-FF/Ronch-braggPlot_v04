@@ -10,25 +10,24 @@ class Event;
 
 class EventReadFromFile: public EventSource {
 
- public:
+public:
 
-  // read data from file "name"
-  EventReadFromFile( const std::string& name );
-  virtual ~EventReadFromFile();
+	// read data from file "name"
+	EventReadFromFile(const std::string& name);
+	virtual ~EventReadFromFile();
 
+private:
 
- private:
+	std::ifstream* file;
 
-  std::ifstream* file;
+	// read and event
+	const Event* readFile();
 
-  // read and event
-  const Event* readFile();
+	EventReadFromFile(const EventReadFromFile& x);
+	EventReadFromFile& operator=(const EventReadFromFile& x);
 
-  EventReadFromFile           ( const EventReadFromFile& x );
-  EventReadFromFile& operator=( const EventReadFromFile& x );
-
-  // get an event
-  virtual const Event* get();
+	// get an event
+	virtual const Event* get();
 };
 
 #endif

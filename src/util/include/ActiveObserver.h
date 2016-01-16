@@ -1,20 +1,20 @@
 #ifndef ActiveObserver_H
 #define ActiveObserver_H
 
-template <class T>
+template<class T>
 class ActiveObserver {
 
- public:
+public:
 
-  ActiveObserver();
-  virtual ~ActiveObserver();
+	ActiveObserver();
+	virtual ~ActiveObserver();
 
-  virtual void update( const T& x ) = 0;
+	virtual void update(const T& x) = 0;
 
- private:
+private:
 
-  ActiveObserver           ( const ActiveObserver& x );
-  ActiveObserver& operator=( const ActiveObserver& x );
+	ActiveObserver(const ActiveObserver& x);
+	ActiveObserver& operator=(const ActiveObserver& x);
 
 };
 

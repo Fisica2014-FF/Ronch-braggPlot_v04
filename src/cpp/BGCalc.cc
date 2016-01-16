@@ -8,7 +8,6 @@
 #include "../TotalEnergy.h"
 #include "../util/include/Singleton.h"
 
-
 using namespace std;
 
 // define a builder for this analyzer and register it
@@ -81,7 +80,7 @@ void BGCalc::endJob() {
 	// compute background
 
 	// number of points
-	auto numpoints = max_points-min_points;
+	auto numpoints = max_points - min_points;
 	// total number of measurements
 	auto tot_measurements = numpoints * number_of_events_;
 	// compute mean and rms

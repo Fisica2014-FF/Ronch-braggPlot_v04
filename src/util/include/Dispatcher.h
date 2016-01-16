@@ -3,33 +3,33 @@
 
 #include <set>
 
-template <class T> class ActiveObserver;
-template <class T> class   LazyObserver;
+template<class T> class ActiveObserver;
+template<class T> class LazyObserver;
 
-template <class T>
+template<class T>
 class Dispatcher {
 
-  friend class ActiveObserver<T>;
-  friend class   LazyObserver<T>;
+	friend class ActiveObserver<T> ;
+	friend class LazyObserver<T> ;
 
- public:
+public:
 
-  static void notify( const T& x );
-  static std::set<ActiveObserver<T>*>* init();
+	static void notify(const T& x);
+	static std::set<ActiveObserver<T>*>* init();
 
- private:
+private:
 
-  static void   subscribe( ActiveObserver<T>* obs );
-  static void unsubscribe( ActiveObserver<T>* obs );
-  static void   subscribe(   LazyObserver<T>* obs );
-  static void unsubscribe(   LazyObserver<T>* obs );
+	static void subscribe(ActiveObserver<T>* obs);
+	static void unsubscribe(ActiveObserver<T>* obs);
+	static void subscribe(LazyObserver<T>* obs);
+	static void unsubscribe(LazyObserver<T>* obs);
 
-  static const T* last;
-  static std::set<ActiveObserver<T>*>* activeObserverList();
-  static std::set<  LazyObserver<T>*>*   lazyObserverList();
+	static const T* last;
+	static std::set<ActiveObserver<T>*>* activeObserverList();
+	static std::set<LazyObserver<T>*>* lazyObserverList();
 
-  Dispatcher();
-  ~Dispatcher();
+	Dispatcher();
+	~Dispatcher();
 
 };
 

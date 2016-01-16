@@ -5,7 +5,6 @@
 #include "../AnalysisFactory.h"
 #include "../Event.h"
 
-
 using namespace std;
 
 // builder to create an EventDump analyzer

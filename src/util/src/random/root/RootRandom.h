@@ -6,24 +6,24 @@
 
 class RootRandom: public Random {
 
- public:
+public:
 
-  RootRandom();
-  ~RootRandom();
+	RootRandom();
+	~RootRandom();
 
- protected:
+protected:
 
-  // redeclaration of random number generation functions
-  virtual void set( unsigned int seed );
-  virtual float generate( Random::probability p, float a, float b );
+	// redeclaration of random number generation functions
+	virtual void set(unsigned int seed);
+	virtual float generate(Random::probability p, float a, float b);
 
- private:
+private:
 
-  // actual ROOT generator
-  TRandom* rand;
+	// actual ROOT generator
+	TRandom* rand;
 
-  RootRandom           ( const RootRandom& x );
-  RootRandom& operator=( const RootRandom& x );
+	RootRandom(const RootRandom& x);
+	RootRandom& operator=(const RootRandom& x);
 
 };
 

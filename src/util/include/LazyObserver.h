@@ -1,29 +1,29 @@
 #ifndef LazyObserver_H
 #define LazyObserver_H
 
-template <class T>
+template<class T>
 class LazyObserver {
 
- public:
+public:
 
-  LazyObserver();
-  virtual ~LazyObserver();
+	LazyObserver();
+	virtual ~LazyObserver();
 
-  virtual void lazyUpdate( const T& x );
+	virtual void lazyUpdate(const T& x);
 
- protected:
+protected:
 
-  virtual void update( const T& x ) = 0;
-  virtual void check();
+	virtual void update(const T& x) = 0;
+	virtual void check();
 
- private:
+private:
 
-  bool upToDate;
-  bool updating;
-  const T* last;
+	bool upToDate;
+	bool updating;
+	const T* last;
 
-  LazyObserver           ( const LazyObserver& x );
-  LazyObserver& operator=( const LazyObserver& x );
+	LazyObserver(const LazyObserver& x);
+	LazyObserver& operator=(const LazyObserver& x);
 
 };
 

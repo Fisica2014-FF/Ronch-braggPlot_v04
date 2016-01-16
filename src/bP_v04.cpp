@@ -5,7 +5,6 @@
 // Description : Modify Plot_v03 and use dispatcher&observers to loop over events
 //============================================================================
 
-
 #include <iostream>
 #include <vector>
 
@@ -30,7 +29,6 @@ int main(int argc, char* argv[]) {
 
 	cerr << "aList.size(): " << aList.size() << endl;
 
-
 	// initialize all analyzers
 	for (auto& as : aList) {
 		as->beginJob();
@@ -52,5 +50,4 @@ int main(int argc, char* argv[]) {
 
 	return 0;
 }
-
 

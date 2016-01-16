@@ -9,18 +9,18 @@ class AnalysisInfo;
 
 class SourceFactory {
 
- public:
+public:
 
-  SourceFactory();
-  virtual ~SourceFactory();
+	SourceFactory();
+	virtual ~SourceFactory();
 
-  // create event source
-  static EventSource* create( const AnalysisInfo* info );
+	// create event source
+	static EventSource* create(const AnalysisInfo* info);
 
- private:
+private:
 
-  SourceFactory           ( const SourceFactory& x );
-  SourceFactory& operator=( const SourceFactory& x );
+	SourceFactory(const SourceFactory& x);
+	SourceFactory& operator=(const SourceFactory& x);
 
 };
 

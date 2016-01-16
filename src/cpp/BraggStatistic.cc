@@ -7,7 +7,6 @@
 #include "../TotalEnergy.h"
 #include "../util/include/Singleton.h"
 
-
 BraggStatistic::BraggStatistic(int minEnergy, int maxEnergy) :
 		MIN_ENERGY_(minEnergy), MAX_ENERGY_(maxEnergy), number_of_events_(0), sumenergies(
 				Event::minSize(), 0), sumsquares((int) Event::minSize(), 0), meanenergies(
@@ -27,7 +26,6 @@ void BraggStatistic::add(const Event& ev) {
 
 	// total energy
 	auto totalenergy = TotalEnergy::instance()->rawSum();
-
 
 	// check for total energy being in the required range,
 	// if not return
